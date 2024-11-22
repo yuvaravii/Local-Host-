@@ -1,0 +1,5 @@
+2024-07-29 19:33:04-root-DEBUG-This is a debugging logging
+2024-07-29 19:33:04-root-INFO-This is a info logging
+2024-07-29 19:33:04-root-WARNING-This is logging warnings messages
+2024-07-29 19:33:04-root-ERROR-This is logging the error messages
+2024-07-29 19:33:04-root-CRITICAL-This is logging the critical messages
