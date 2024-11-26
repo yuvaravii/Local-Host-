@@ -8,6 +8,14 @@ why we need render template : We will create some aesthetic page for better visu
     - This render template redirects the user from web application to html page.  
 '''
 
+'''
+Discussing about 
+1. variable rule 
+2. dynamic url 
+3. Jinja 2 template : this enables the storage of information and showcasing the result in the final web-page.
+
+'''
+
 # WSGI initialization
 app = Flask(__name__)
 
@@ -22,12 +30,44 @@ def welcome():
 def index():
     return render_template('index.html')
 
-@app.route("/form", methods = ['GET','POST'])
-def form():
+
+
+@app.route("/submit", methods = ['GET','POST'])
+def submit():
     if request.method =='POST':    
         name = request.form['name']   
         return f"Hi {name}" 
     return render_template('form.html')
+
+
+
+## 3. creating new dynamic url
+@app.route("/success/<int:score>")
+def success(score):
+    res = " "
+    if score > 50:
+        res = "PASSED"
+    else:
+        res = "FAILED"
+    return render_template('results.html',results = res)
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/successif/<int:score>")
+def successif(score):
+    # Ensure score is an integer
+    if not isinstance(score, int):
+        return "Error: Score must be an integer", 400
+
+    # Determine pass/fail status
+    res = "PASSED" if score > 50 else "FAILED"
+
+    # Pass results as a dictionary to the template
+    results = {'score': int(score), 'res': res}
+    return render_template('results1.html', results=results)
+
         
 
 # by default, every function here has get method in it.
