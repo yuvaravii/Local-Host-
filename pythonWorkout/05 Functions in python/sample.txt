@@ -1,0 +1,3 @@
+Hello everyone ! welcome to the realm of Python.
+I am trying to add content to word frequency mapper.
+let's see how interesting is it ?
