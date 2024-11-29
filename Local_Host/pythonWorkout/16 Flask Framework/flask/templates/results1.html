@@ -1,0 +1,9 @@
+<h1>Results</h1>
+{% for key, value in results.items() %}
+    <h2>Marks received: {{ value }}</h2>
+    {% if value >= 50 %}
+        <h2>Based on the marks received, you have PASSED</h2>
+    {% else %}
+        <h2>Based on the criteria, you have FAILED</h2>
+    {% endif %}
+{% endfor %}
